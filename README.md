@@ -6,6 +6,34 @@
 > This interface is free for any use, but if you are going to use it commercially, consider helping to maintain this project and others with a donation by Gumroado at the link above. This helps to keep this and other projects active.
 
 > **Warning**: this project was created using PySide6 and Python 3.9, using previous versions can cause compatibility problems.
+```markdown
+## Setup
+
+**Cerințe:** Python 3.9+
+
+```bash
+# Clonează repo-ul
+git clone https://github.com/user/proiect.git
+cd proiect
+
+# Creează și activează virtual environment
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# macOS / Linux
+source venv/bin/activate
+
+# Instalează dependențele (nu avem inca)
+pip install -r requirements.txt
+```
+
+## Rulare
+
+```bash
+python main.py
+```
 
 # YouTube - Presentation And Tutorial
 Presentation and tutorial video with the main functions of the user interface.

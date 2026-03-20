@@ -862,6 +862,9 @@ Button */
                   <property name="cursor">
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
+                  <property name="toolTipDuration">
+                   <number>-1</number>
+                  </property>
                   <property name="layoutDirection">
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
@@ -902,10 +905,33 @@ Button */
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-size-grip.png);
+</string>
                   </property>
                   <property name="text">
                    <string>Widgets</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_minigames">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-image:  url(:/icons/images/icons/cil-gamepad.png);</string>
+                  </property>
+                  <property name="text">
+                   <string>PushButton</string>
                   </property>
                  </widget>
                 </item>
@@ -2166,7 +2192,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>218</width>
+                                 <width>353</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -2710,6 +2736,38 @@ background-repeat: no-repeat;</string>
                         </widget>
                        </item>
                       </layout>
+                     </widget>
+                     <widget class="QWidget" name="minigames_page">
+                      <widget class="QPushButton" name="btn_playGame">
+                       <property name="geometry">
+                        <rect>
+                         <x>460</x>
+                         <y>260</y>
+                         <width>251</width>
+                         <height>91</height>
+                        </rect>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>28</pointsize>
+                         <italic>false</italic>
+                         <bold>false</bold>
+                        </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 28pt &quot;Segoe UI&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>PLAY A MINI</string>
+                       </property>
+                      </widget>
                      </widget>
                      <widget class="QWidget" name="new_page">
                       <layout class="QVBoxLayout" name="verticalLayout_20">

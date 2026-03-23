@@ -1,4 +1,4 @@
-import pygetwindow as gw
+import pywinctl as gw
 from PySide6.QtCore import QTimer
 
 class AppWatcher:
@@ -21,7 +21,7 @@ class AppWatcher:
 
     def check(self):
         try:
-            windows = gw.getAllTitles()
+            windows = [w.title for w in gw.getAllWindows()]
             detected = any(
                 target.lower() in title.lower()
                 for title in windows

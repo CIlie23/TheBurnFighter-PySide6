@@ -1,3 +1,28 @@
+# Cross-platform window blocking/unblocking using pywinctl
+import pywinctl
+
+def block_app(window_title):
+    """
+    Minimizes (hides) all windows matching the given title.
+    """
+    windows = pywinctl.getWindowsWithTitle(window_title)
+    for win in windows:
+        try:
+            win.minimize()
+        except Exception as e:
+            print(f"Failed to minimize window '{win.title}': {e}")
+
+def unblock_app(window_title):
+    """
+    Restores (shows) all windows matching the given title.
+    """
+    windows = pywinctl.getWindowsWithTitle(window_title)
+    for win in windows:
+        try:
+            win.restore()
+            win.activate()
+        except Exception as e:
+            print(f"Failed to restore window '{win.title}': {e}")
 # ///////////////////////////////////////////////////////////////
 #
 # BY: WANDERSON M.PIMENTA

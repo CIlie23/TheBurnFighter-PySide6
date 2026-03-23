@@ -22,6 +22,8 @@ import platform
 # ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
+from modules.minigame import MinigameDialog
+from modules.app_watcher import AppWatcher
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 
 # SET AS GLOBAL WIDGETS
@@ -45,8 +47,8 @@ class MainWindow(QMainWindow):
 
         # APP NAME
         # ///////////////////////////////////////////////////////////////
-        title = "PyDracula - Modern GUI"
-        description = "PyDracula APP - Theme with colors based on Dracula for Python."
+        title = "BurnFighter"
+        description = "Time is a resource. Don't waste it"
         # APPLY TEXTS
         self.setWindowTitle(title)
         widgets.titleRightInfo.setText(description)
@@ -71,6 +73,13 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets.clicked.connect(self.buttonClick)
         widgets.btn_new.clicked.connect(self.buttonClick)
         widgets.btn_save.clicked.connect(self.buttonClick)
+        widgets.btn_minigames.clicked.connect(self.buttonClick)
+
+        # PLAY GAME BUTTON
+        widgets.btn_playGame.clicked.connect(self.openMinigame)
+
+        # WATCHERS
+        self.web_watcher = AppWatcher(targets=["Youtube", "Instagram", "Facebook"], on_detected=self.openMinigame, interval=10)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -109,6 +118,10 @@ class MainWindow(QMainWindow):
     # BUTTONS CLICK
     # Post here your functions for clicked buttons
     # ///////////////////////////////////////////////////////////////
+    def openMinigame(self):
+        dialog = MinigameDialog(None) # so that its not tied to the app window
+        dialog.exec()
+
     def buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -117,6 +130,12 @@ class MainWindow(QMainWindow):
         # SHOW HOME PAGE
         if btnName == "btn_home":
             widgets.stackedWidget.setCurrentWidget(widgets.home)
+            UIFunctions.resetStyle(self, btnName)
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+
+        # MINIGAMES PAGE BUTTON BABYYYYYYY
+        if btnName == "btn_minigames":
+            widgets.stackedWidget.setCurrentWidget(widgets.minigames_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
@@ -137,7 +156,6 @@ class MainWindow(QMainWindow):
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
-
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////

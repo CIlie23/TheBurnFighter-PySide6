@@ -668,6 +668,7 @@ class Ui_MainWindow(object):
         self.btn_home.setMinimumSize(QSize(0, 45))
         self.btn_home.setFont(font)
         self.btn_home.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.btn_home.setToolTipDuration(-1)
         self.btn_home.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_home.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-home.png);")
 
@@ -681,9 +682,19 @@ class Ui_MainWindow(object):
         self.btn_widgets.setFont(font)
         self.btn_widgets.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_widgets.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);")
+        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-size-grip.png);\n"
+"")
 
         self.verticalLayout_8.addWidget(self.btn_widgets)
+
+        self.btn_minigames = QPushButton(self.topMenu)
+        self.btn_minigames.setObjectName(u"btn_minigames")
+        sizePolicy.setHeightForWidth(self.btn_minigames.sizePolicy().hasHeightForWidth())
+        self.btn_minigames.setSizePolicy(sizePolicy)
+        self.btn_minigames.setMinimumSize(QSize(0, 45))
+        self.btn_minigames.setStyleSheet(u"background-image:  url(:/icons/images/icons/cil-gamepad.png);")
+
+        self.verticalLayout_8.addWidget(self.btn_minigames)
 
         self.btn_new = QPushButton(self.topMenu)
         self.btn_new.setObjectName(u"btn_new")
@@ -1187,7 +1198,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 353, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1390,6 +1401,21 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.row_3)
 
         self.stackedWidget.addWidget(self.widgets)
+        self.minigames_page = QWidget()
+        self.minigames_page.setObjectName(u"minigames_page")
+        self.btn_playGame = QPushButton(self.minigames_page)
+        self.btn_playGame.setObjectName(u"btn_playGame")
+        self.btn_playGame.setGeometry(QRect(460, 260, 251, 91))
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setPointSize(28)
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.btn_playGame.setFont(font5)
+        self.btn_playGame.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.btn_playGame.setAutoFillBackground(False)
+        self.btn_playGame.setStyleSheet(u"font: 28pt \"Segoe UI\";")
+        self.stackedWidget.addWidget(self.minigames_page)
         self.new_page = QWidget()
         self.new_page.setObjectName(u"new_page")
         self.verticalLayout_20 = QVBoxLayout(self.new_page)
@@ -1502,11 +1528,11 @@ class Ui_MainWindow(object):
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
-        font5 = QFont()
-        font5.setFamilies([u"Segoe UI"])
-        font5.setBold(False)
-        font5.setItalic(False)
-        self.creditsLabel.setFont(font5)
+        font6 = QFont()
+        font6.setFamilies([u"Segoe UI"])
+        font6.setBold(False)
+        font6.setItalic(False)
+        self.creditsLabel.setFont(font6)
         self.creditsLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
@@ -1555,6 +1581,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
+        self.btn_minigames.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
         self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
@@ -1667,6 +1694,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
+        self.btn_playGame.setText(QCoreApplication.translate("MainWindow", u"PLAY A MINI", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"TEST EST TEST", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
